@@ -35,33 +35,27 @@ class Recurring implements InstallSchemaInterface
                          'Answer ID'
                     )
                     ->addColumn(
-                        'answer_Q1',
+                        'rating',
                         Table::TYPE_TEXT,
                         null,
                         ['unsigned' => true, 'nullable' => false],
-                        'Answer Question 1'
+                        'Rating'
                     )
                     ->addColumn(
-                        'answer_Q2',
+                        'message',
                         Table::TYPE_TEXT,
                         null,
                         ['unsigned' => true, 'nullable' => false],
-                        'Answer Question 2'
+                        'Message'
                     )
                     ->addColumn(
-                        'answer_Q3',
+                        'product_id',
                         Table::TYPE_TEXT,
                         null,
                         ['unsigned' => true, 'nullable' => false],
-                        'Answer Question 3'
-                    )
-                    ->addColumn(
-                        'answer_Q4',
-                        Table::TYPE_TEXT,
-                        null,
-                        ['unsigned' => true, 'nullable' => false],
-                        'Answer Question 4'
+                        'Product ID'
                     );
+                    
         $connection->createTable($surveyTable);
             
         $setup->endSetup();

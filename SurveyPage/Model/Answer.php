@@ -6,17 +6,17 @@ use \Magento\Framework\Model\AbstractModel;
 use \Magento\Framework\DataObject\IdentityInterface;
 use \Survey\SurveyPage\Api\Data\AnswerInterface;
 
-class Post extends AbstractModel implements AnswerInterface, IdentityInterface
+class Answer extends AbstractModel implements AnswerInterface, IdentityInterface
 {
-   const CACHE_TAG = 'survey_results';
-   public function __construct()
+   const CACHE_TAG = 'survey_answer';
+   public function _construct()
    {
-       $this->_init('Survey\SurveyPage\Model\ResourceModel\Post');
+       $this->_init('Survey\SurveyPage\Model\ResourceModel\Answer');
    }
    public function getId()
    {
        return $this->getData(self::ANSWER_ID);
-   }
+   } 
    public function setId($id)
    {
        return $this->setData(self::ANSWER_ID, $id);
@@ -56,4 +56,3 @@ class Post extends AbstractModel implements AnswerInterface, IdentityInterface
        return [self::CACHE_TAG . '_' . $this->getId()];
    }
 }
-
