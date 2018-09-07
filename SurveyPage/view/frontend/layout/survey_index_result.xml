@@ -1,11 +1,11 @@
 <page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" layout="1column" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
    <head>
-       <title>Survey Form</title>
+       <title>Survey Results</title>
    </head>
    <body>
        <referenceContainer name="content">
-           <block name="form" 
-            class="Magento\Framework\View\Element\Template" template="Survey_SurveyPage::form.phtml"/>
+           <block name="result" 
+            class="Magento\Framework\View\Element\Template" template="Survey_SurveyPage::result.phtml"/>
        </referenceContainer>
    </body>
 </page>

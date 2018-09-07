@@ -1,30 +1,36 @@
-
-<!--
-<form class="form" id="surveyForm" action="</*?php echo $this->getFormAction();?>" method="post">
-    <div>My Form</div>
+<form class="form" id="surveyForm" action="survey/index/result" method="post">
     <fieldset>
     <div>
-        
+        <label for="used" class="label"><span><?php echo __('Question 1: Have you ever used the product'.' ?') ; print_r( $this->getProduct(3) )  ?></span></label>
+        <p>
+            <input type="radio" name="used" value="yes">Yes <br>
+            <input type="radio" name="used" value="no">No
+        </p>
+        <label for="rating" class="label"><span><?php echo __('Question 2: Rating ') ?></span></label>
         <p>
             Rating: 
-            <input type="range" min="1" max="5" value="1" class="slider" id="ratingRange">
+            <input type="range" min="1" max="5" value="1" class="slider" id="ratingRange" name="rating">
         </p>
+        <h3>Question 3:</h3>
         <p>
-            Message:
-            <textarea row="2" column="50" id="message"></textarea>
+            Message for the products:
+            <textarea row="2" column="50" id="message" name="message"></textarea>
+        </p>
+        <h3>Question 4:</h3>
+        <p>
+            Would you recommend the product <!--?php echo $this->getProductById().getName();? --> ? <br>
+            <input type="radio" name="recommend" value="yes">Yes <br>
+            <input type="radio" name="recommend" value="no">No
         </p>
     </div>
     <input type="submit" value="submit">
     </fieldset>
 </form>
--->
-<div>My Form</div>
 
-<?/*php 
-    for (var $i = 0; $i < 3; $i ++ ) {
-        echo '<div> Product: '. $this->getProductByID($i) . '<br>';
-        echo
+<script type="text/x-magento-init">
+    {
+        "#surveyForm": {
+            "validation": {}
+        }
     }
-   
-?>
-
+</script>

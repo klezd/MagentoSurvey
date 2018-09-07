@@ -25,6 +25,7 @@ class Recurring implements InstallSchemaInterface
         if ($connection->isTableExists(self::ANSWER_TABLE)) {
             $connection->dropTable(self::ANSWER_TABLE);
         }
+
         $surveyTable = $connection
                     ->newTable( self::ANSWER_TABLE )
                     ->addColumn(
@@ -33,6 +34,13 @@ class Recurring implements InstallSchemaInterface
                          null,
                          ['identity' => true, 'unsigned' => true, 'nullable' => false, 'primary' => true],
                          'Answer ID'
+                    )
+                    ->addColumn(
+                        'used',
+                        Table::TYPE_TEXT,
+                        null,
+                        ['unsigned' => true, 'nullable' => false],
+                        'Used'
                     )
                     ->addColumn(
                         'rating',
@@ -45,17 +53,24 @@ class Recurring implements InstallSchemaInterface
                         'message',
                         Table::TYPE_TEXT,
                         null,
-                        ['unsigned' => true, 'nullable' => false],
+                        ['unsigned' => true, 'nullable' => true],
                         'Message'
                     )
                     ->addColumn(
-                        'product_id',
+                        'recommend',
                         Table::TYPE_TEXT,
+                        null,
+                        ['unsigned' => true, 'nullable' => false],
+                        'Recommend'
+                    )
+                    ->addColumn(
+                        'product_id',
+                        Table::TYPE_INTEGER,
                         null,
                         ['unsigned' => true, 'nullable' => false],
                         'Product ID'
                     );
-                    
+
         $connection->createTable($surveyTable);
             
         $setup->endSetup();

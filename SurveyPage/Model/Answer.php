@@ -51,6 +51,26 @@ class Answer extends AbstractModel implements AnswerInterface, IdentityInterface
        return $this->setData(self::PRODUCT_ID, $product_id);
    }
 
+   public function getRecommend()
+   {
+       return $this->getData(self::RECOMMEND);
+   }  
+   
+   public function setRecommend($recommend)
+   {
+       return $this->setData(self::RECOMMEND, $recommend);
+   }
+
+   public function getUsed()
+   {
+       return $this->getData(self::USED);
+   }  
+   
+   public function setUsed($used)
+   {
+       return $this->setData(self::USED, $used);
+   }
+
    public function getIdentities()
    {
        return [self::CACHE_TAG . '_' . $this->getId()];
